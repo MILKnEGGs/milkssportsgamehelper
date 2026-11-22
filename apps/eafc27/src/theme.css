@@ -1,0 +1,12 @@
+/* FC 27 look: night-match pitch green with a bright grass accent. */
+:root {
+  --bg: #07140d;
+  --panel: #0e2117;
+  --panel-2: #142c1f;
+  --line: #22412f;
+  --muted: #93ae9e;
+  --accent: #4ade80;
+  --accent-ink: #04210f;
+  --pitch: #0f3a22;
+  --pitch-line: rgb(255 255 255 / 0.18);
+}

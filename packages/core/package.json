@@ -1,0 +1,12 @@
+{
+  "name": "@milk/core",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Shared pieces for every game helper: local storage, backups and share codes, money and number helpers, the base look and small UI parts.",
+  "exports": {
+    "./*.svelte": "./src/components/*.svelte",
+    "./style.css": "./src/style.css",
+    "./*": "./src/*.ts"
+  }
+}
