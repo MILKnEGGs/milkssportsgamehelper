@@ -1,0 +1,288 @@
+/*
+  Shared look for the app pitch pages. Each page sets its own colors on <body>:
+    --accent        the app's color, for fills and rules
+    --on-accent     text on top of --accent
+    --accent-text   the app's color when used as text, in light and dark (see the page's own <style>)
+*/
+
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --shadow: 0 1px 2px rgb(15 23 42 / 0.06), 0 4px 12px rgb(15 23 42 / 0.06);
+  --focus: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: #334155;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 12px rgb(0 0 0 / 0.25);
+    --focus: #60a5fa;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+
+.home {
+  display: inline-block;
+  padding: 8px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.home:hover { color: var(--text); }
+
+/* ---------- Top of the page ---------- */
+
+.hero {
+  padding: 24px 0 36px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.hero-head img {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.tagline {
+  margin: 0;
+  max-width: 24em;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  margin: 16px 0 24px;
+  max-width: 36em;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.cta {
+  display: inline-block;
+  min-height: 52px;
+  padding: 13px 26px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cta:hover { filter: brightness(1.05); }
+
+.cta-note {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ---------- Major features, each beside a real screen ---------- */
+
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  align-items: center;
+  gap: 40px;
+  padding: 44px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.feature:nth-of-type(even) {
+  grid-template-columns: 260px minmax(0, 1fr);
+}
+
+.feature:nth-of-type(even) .shot { order: -1; }
+
+.kicker {
+  margin: 0 0 6px;
+  color: var(--accent-text);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 1.55rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.feature p {
+  margin: 0 0 14px;
+}
+
+.feature ul {
+  margin: 0;
+  padding: 0 0 0 1.15em;
+  display: grid;
+  gap: 7px;
+}
+
+.feature li::marker { color: var(--accent-text); }
+
+.shot {
+  margin: 0;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.shots-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.feature.wide {
+  grid-template-columns: minmax(0, 1fr) 400px;
+}
+
+/* Wide screens (a laptop or tablet app) sit under the text at full width. */
+.feature.landscape,
+.feature.landscape:nth-of-type(even) {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.feature.landscape .shot { order: 0; width: 100%; }
+
+.feature.landscape .shot img { border-radius: 14px; }
+
+.feature.text-only,
+.feature.text-only:nth-of-type(even) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* ---------- Smaller things and limits ---------- */
+
+.block {
+  padding: 44px 0 0;
+}
+
+.extras {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.extra {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+}
+
+.extra h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.extra p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.limits {
+  margin: 14px 0 0;
+  padding: 0 0 0 1.15em;
+  display: grid;
+  gap: 8px;
+  max-width: 40em;
+}
+
+.close {
+  margin-top: 44px;
+  padding: 28px 20px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.close h2 { margin-bottom: 16px; }
+
+.close a.install {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 720px) {
+  .feature,
+  .feature:nth-of-type(even),
+  .feature.wide {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 34px 0;
+  }
+
+  .feature:nth-of-type(even) .shot { order: 0; }
+
+  .shot {
+    justify-self: center;
+    width: min(100%, 280px);
+  }
+
+  .feature.landscape .shot { width: 100%; }
+
+  .shot.shots-2 {
+    width: 100%;
+    max-width: 420px;
+  }
+}

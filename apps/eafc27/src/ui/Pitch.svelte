@@ -96,7 +96,10 @@
   .slot:hover .dot {
     border-color: var(--text);
   }
+  /* Hangs below the dot without changing the slot's size, so a name never shifts the dot. */
   .who {
+    position: absolute;
+    top: calc(100% + 2px);
     font-size: 0.72rem;
     line-height: 1.1;
     max-width: 76px;

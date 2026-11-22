@@ -70,6 +70,23 @@
     .app .game { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
     .app h2 { margin: 0; font-size: 1.2rem; }
     .app p { margin: 0; color: var(--muted); }
+    /* "See what it does" sits under a card, joined to it, like on Milk's Apps. */
+    .has-pitch { display: flex; flex-direction: column; }
+    .has-pitch .app { flex: 1; height: auto; border-bottom: 0; border-radius: 14px 14px 0 0; box-shadow: none; }
+    .pitch {
+      display: block;
+      padding: 11px 18px;
+      border: 1px solid var(--border);
+      border-radius: 0 0 14px 14px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .pitch:hover { color: var(--text); }
+    .pitch:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
     footer { margin-top: 40px; color: var(--muted); font-size: 0.85rem; }
   </style>
 </head>
@@ -84,12 +101,14 @@
     </div>
 
     <ul class="grid">
-      <li>
+      <!-- Each game gets a card plus a "See what it does" page in site/pitch/. -->
+      <li class="has-pitch">
         <a class="app" href="eafc27/" style="--accent:#4ade80">
           <span class="game">EA SPORTS FC 27 · Manager Career</span>
           <h2>FC 27 Career Helper</h2>
           <p>Board goals and signing targets by priority, formation roles with what each slot needs, youth prospects and tactics.</p>
         </a>
+        <a class="pitch" href="pitch/eafc27.html" aria-label="See what FC 27 Career Helper does">See what it does →</a>
       </li>
     </ul>
 
